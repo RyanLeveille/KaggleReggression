@@ -5,11 +5,6 @@ Created on Wed Oct 30 16:37:36 2019
 @author: ryanl
 """
 
-# Bubble sorting #overfitting, early stopping (practice later)
-
-
-###########################################################################
-
 # Kaggle Regression
 
 # Import Libraries
@@ -421,6 +416,16 @@ train['Fence'].fillna('None', inplace = True)
 # We are going to fill MiscFeature with none because description says none
 train['MiscFeature'].fillna('None', inplace = True)
 
+###############################################################################
+
+# Check for NA's after filling.
+# numna = train.isnull().sum()
+# numna_col = numna[numna.values > 0]
+
+# There are 0 NA's so we move on!
+
+###############################################################################
+
 # Get Dummies; One-hot encoding the categorical variables
 
 train = pd.get_dummies(train)
@@ -459,6 +464,14 @@ from sklearn import metrics
 print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
 print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))
 print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+
+# Feature Importance and Model Score
+feature_importance = regressor.feature_importances_
+score = regressor.score(X_train,y_train)
+
+# Score = 0.9781396188591381
+
+
 
 
 
