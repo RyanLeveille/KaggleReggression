@@ -472,6 +472,8 @@ score = regressor.score(X_train,y_train)
 # Score = 0.9781396188591381
 
 ###############################################################################
+###############################################################################
+
 
 # Test Set
 
@@ -922,7 +924,7 @@ train = pd.get_dummies(train)
 # Set up Model
 
 X = train.drop(columns = 'SalePrice')
-y = train['SalePrice']
+#y = train['SalePrice']
 
 # Finally, let's divide the data into training and testing sets:
 
